@@ -9,7 +9,7 @@ public class code : MonoBehaviour {
 
 	public string url = "https://www.univ-lyon1.fr/images/www/";
 	public string image = "logo-lyon1.png";
-	public string path = "./Assets/";
+	public string path = "./Assets/Resources/";
 
 	// Use this for initialization
 	IEnumerator Start()
@@ -25,15 +25,12 @@ public class code : MonoBehaviour {
 				System.IO.File.WriteAllBytes(path + image, www.bytes);
 			}
 
-			// Add to list of textures
-			textures.Add(www.texture);
-
 			// loop on file paths
 			foreach (string filePath in System.IO.Directory.GetFiles(path))
 			{
 				if (System.IO.Path.GetExtension(filePath) == ".png") {
-					print("Loading " + System.IO.Path.GetFileName(filePath) + " as a texture");
-
+					print("Loading " + filePath + " as a texture");
+					Load(System.IO.Path.GetFileNameWithoutExtension(filePath));
 					//Thread t = new Thread(() => Load(filePath));
 					//t.Start();
 				}
@@ -53,6 +50,6 @@ public class code : MonoBehaviour {
 	}
 
 	void Load(string filePath) {
-		textures.Add(Resources.Load(filePath) as Texture);
+		textures.Add(Resources.Load(filePath, typeof (Texture)) as Texture);
 	}
 }

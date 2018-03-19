@@ -274,9 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b11d77671a490541b33aafb2e49aa58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textures:
-  - {fileID: 2800000, guid: d317ad37f48383149b6117da033dc6eb, type: 3}
-  - {fileID: 2800000, guid: 2b619eb6529492a4386e796fa8cbe30e, type: 3}
+  textures: []
   currentTexture: 0
   url: https://www.univ-lyon1.fr/images/www/
   image: logo-lyon1.png
